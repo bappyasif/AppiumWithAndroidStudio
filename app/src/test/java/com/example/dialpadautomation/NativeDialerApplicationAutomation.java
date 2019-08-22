@@ -58,30 +58,36 @@ public class NativeDialerApplicationAutomation {
     @Test
     public void CommencingTest(){
 
-        appium_Driver.findElement(By.id("9")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/floating_action_button")).click();
 
 //        appium_Driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout" +
 //                "/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v4.view.ViewPager/android.widget.FrameLayout")).click();
 
-        appium_Driver.findElement(By.name("+")).click();
+        //appium_Driver.findElement(By.name("+")).click();
+        //appium_Driver.findElementByAccessibilityId("+").click();
+        //appium_Driver.findElementsById("com.android.dialer:id/dialpad_key_letters").get(8).click();
 
-        appium_Driver.findElement(By.name("8")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/digits")).sendKeys("+");
+        //appium_Driver.findElementsById("com.android.dialer:id/dialpad_key_number").get(10).click();
 
-        appium_Driver.findElement(By.name("8")).click();
+//        111
+        appium_Driver.findElement(By.id("com.android.dialer:id/eight")).click();
 
-        appium_Driver.findElement(By.name("0")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/eight")).click();
 
-        appium_Driver.findElement(By.name("1")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/zero")).click();
 
-        appium_Driver.findElement(By.name("9")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/one")).click();
 
-        appium_Driver.findElement(By.name("1")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/nine")).click();
 
-        appium_Driver.findElement(By.name("5")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/one")).click();
 
-        appium_Driver.findElement(By.name("6")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/five")).click();
 
-        appium_Driver.findElement(By.name("4")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/six")).click();
+
+        appium_Driver.findElement(By.id("com.android.dialer:id/four")).click();
 
         //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_key_number")).click();
 
