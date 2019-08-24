@@ -1,8 +1,13 @@
 package com.example.dialpadautomation;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
@@ -69,8 +74,26 @@ public class NativeDialerApplicationAutomation {
 
         appium_Driver.findElement(By.id("com.android.dialer:id/digits")).sendKeys("+");
         //appium_Driver.findElementsById("com.android.dialer:id/dialpad_key_number").get(10).click();
-
 //        111
+
+        //appium_Driver.findElement(MobileBy.ByAndroidUIAutomator("new UiSelector().text(\"+\")"));
+        //appium_Driver.findElement(MobileBy.ByAndroidUIAutomator("new UiSelector().className("android.widget.TextView").text(+)")).click();
+        //appium_Driver.findElement(MobileBy.ByAndroidUIAutomator("new UiSelector().text(( "+" ))")).click();
+        //appium_Driver.findElement(ByElementText("text value"))
+        //appium_Driver.findElement(By.tagName("+")).click();
+//        String selector = "new UiSelector().text(“+”))";
+//        appium_Driver.findElement(MobileBy.AndroidUIAutomator(selector)).click();
+
+        //TouchActions longClick = new TouchActions(appium_Driver);
+        TouchAction longClick = new TouchAction(appium_Driver);
+        //longClick.longPress(appium_Driver.findElementById("com.android.dialer:id/zero")).perform();
+        //MobileElement mobileElement = appium_Driver.findElement(MobileBy.id("com.android.dialer:id/zero"));
+        MobileElement mobileElement = appium_Driver.findElementById("com.android.dialer:id/zero");
+        //longClick.longPress(mobileElement).release().perform();
+        longClick.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(mobileElement))).release().perform();
+
+        appium_Driver.findElement(By.xpath("//android.widget.TextView[@text='+']")).click();
+
         appium_Driver.findElement(By.id("com.android.dialer:id/eight")).click();
 
         appium_Driver.findElement(By.id("com.android.dialer:id/eight")).click();
@@ -91,7 +114,8 @@ public class NativeDialerApplicationAutomation {
 
         //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_key_number")).click();
 
-        appium_Driver.findElement(By.id("com.android.dialer:id/dialpad")).click();
+        //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_floating_action_button")).click();
 
 
     }
