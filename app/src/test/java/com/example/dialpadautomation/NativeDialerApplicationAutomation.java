@@ -134,6 +134,7 @@ public class NativeDialerApplicationAutomation {
         appium_Driver.closeApp();
 
 
+
     }
 
     @AfterTest
