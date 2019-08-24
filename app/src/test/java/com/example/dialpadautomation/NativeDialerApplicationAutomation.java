@@ -63,6 +63,15 @@ public class NativeDialerApplicationAutomation {
     @Test
     public void CommencingTest(){
 
+        try{
+
+            //appium_Driver.back();
+            appium_Driver.navigate().back();
+
+        } catch (Exception ex){
+            System.out.println(ex.getCause());
+        }
+
         appium_Driver.findElement(By.id("com.android.dialer:id/floating_action_button")).click();
 
 //        appium_Driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout" +
@@ -116,6 +125,13 @@ public class NativeDialerApplicationAutomation {
 
         //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad")).click();
         appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_floating_action_button")).click();
+
+        appium_Driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+        //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_floating_action_button")).click();
+        appium_Driver.findElement(By.id("com.android.dialer:id/endButton")).click();
+
+        appium_Driver.closeApp();
 
 
     }
