@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.By;
@@ -53,6 +54,9 @@ public class NativeDialerApplicationAutomation {
         // Set your application's appPackage if you are using any other app.
         capabilities.setCapability("appActivity", "com.android.dialer.DialtactsActivity");
 
+
+        //capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
+
         // Created object of RemoteWebDriver will all set capabilities.
         // Set appium server address and port number in URL string.
         // It will launch calculator app in android device.
@@ -63,14 +67,14 @@ public class NativeDialerApplicationAutomation {
     @Test
     public void CommencingTest(){
 
-        try{
-
-            //appium_Driver.back();
-            appium_Driver.navigate().back();
-
-        } catch (Exception ex){
-            System.out.println(ex.getCause());
-        }
+//        try{
+//
+//            //appium_Driver.back();
+//            appium_Driver.navigate().back();
+//
+//        } catch (Exception ex){
+//            System.out.println(ex.getCause());
+//        }
 
         appium_Driver.findElement(By.id("com.android.dialer:id/floating_action_button")).click();
 
@@ -81,7 +85,7 @@ public class NativeDialerApplicationAutomation {
         //appium_Driver.findElementByAccessibilityId("+").click();
         //appium_Driver.findElementsById("com.android.dialer:id/dialpad_key_letters").get(8).click();
 
-        appium_Driver.findElement(By.id("com.android.dialer:id/digits")).sendKeys("+");
+        //appium_Driver.findElement(By.id("com.android.dialer:id/digits")).sendKeys("+");
         //appium_Driver.findElementsById("com.android.dialer:id/dialpad_key_number").get(10).click();
 //        111
 
@@ -99,9 +103,10 @@ public class NativeDialerApplicationAutomation {
         //MobileElement mobileElement = appium_Driver.findElement(MobileBy.id("com.android.dialer:id/zero"));
         MobileElement mobileElement = appium_Driver.findElementById("com.android.dialer:id/zero");
         //longClick.longPress(mobileElement).release().perform();
-        longClick.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(mobileElement))).release().perform();
+        longClick.longPress(LongPressOptions.longPressOptions().
+                withElement(ElementOption.element(mobileElement))).release().perform(); // Using longPress
 
-        appium_Driver.findElement(By.xpath("//android.widget.TextView[@text='+']")).click();
+        //appium_Driver.findElement(By.xpath("//android.widget.TextView[@text='+']")).click(); // Using sendKeys
 
         appium_Driver.findElement(By.id("com.android.dialer:id/eight")).click();
 
@@ -121,17 +126,38 @@ public class NativeDialerApplicationAutomation {
 
         appium_Driver.findElement(By.id("com.android.dialer:id/four")).click();
 
+        appium_Driver.findElement(By.id("com.android.dialer:id/five")).click();
+
+        appium_Driver.findElement(By.id("com.android.dialer:id/zero")).click();
+
+        appium_Driver.findElement(By.id("com.android.dialer:id/nine")).click();
+
+        appium_Driver.findElement(By.id("com.android.dialer:id/three")).click();
+
         //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_key_number")).click();
 
         //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad")).click();
         appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_floating_action_button")).click();
 
-        appium_Driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        appium_Driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-        //appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_floating_action_button")).click();
-        appium_Driver.findElement(By.id("com.android.dialer:id/endButton")).click();
+        appium_Driver.findElementById("android:id/button1").click();
 
-        appium_Driver.closeApp();
+//        try{
+//
+//
+//            //appium_Driver.findElementById("android:id/button1").click();
+//            appium_Driver.findElement(By.id("com.android.dialer:id/dialpad_floating_action_button")).click();
+//            //appium_Driver.findElement(By.id("com.android.dialer:id/endButton")).click();
+//
+//        } catch (Exception ex){
+//
+//            System.out.println(ex.getCause());
+//        }
+
+
+//        appium_Driver.closeApp();
+//        System.out.println("App Closed");
 
 
 
